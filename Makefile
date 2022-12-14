@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+         #
+#    By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 15:33:56 by mmariani          #+#    #+#              #
-#    Updated: 2022/12/05 18:57:12 by mmariani         ###   ########.fr        #
+#    Updated: 2022/12/14 17:36:54 by mmariani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,23 +15,24 @@ CC = gcc
 FLAGS = -g 
 # -Wall -Wextra -Werror
 LINKS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
-OBJ = minilibx.c
+SRCS = solong.c makingthingsready.c map.c utils.c
+OBJS = $(SRCS:.c=.o)
 LIBFT = ./libft/libft.a
+
+all: $(NAME)
 
 $(LIBFT):
 	$(MAKE) -C ./libft
 
-$(NAME):$(LIBFT) $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) $(LINKS) -o $(NAME)
-
-all: $(NAME)
+$(NAME): $(LIBFT)
+	$(CC) $(FLAGS) $(LINKS) $(SRCS) $(LIBFT) -o $(NAME)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJS)
 		make -C libft clean
 
 fclean: clean
-	rm -f $(NAME) $(BONUS) libft/libft.a
+	rm -f $(NAME) libft/libft.a
 
 re: fclean all
 
