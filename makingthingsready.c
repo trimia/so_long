@@ -6,12 +6,11 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:02:07 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/14 20:43:36 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:41:22 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 void	ft_checkarg(int argc)
 {
@@ -37,20 +36,19 @@ int	ft_check_mapextension(char *file)
 			if (file[--i] == 'b')
 				if (file[--i] == '.')
 					return (1);
+
 	ft_putstr_fd("Error\nwrong extension", 1);
 	return (0);
-
 }
 
-void ft_beforestart(int argc, char **argv, t_game *newgame)
+void	ft_beforestart(int argc, char **argv, t_game *newgame)
 {
-    ft_checkarg(argc);
-    if(!ft_check_mapextension(argv[1]))
+	ft_checkarg(argc);
+	if (!ft_check_mapextension(argv[1]))
 		exit(2);
+	newgame->window.name=ft_strdup(argv[1]);
+	printf("\nname %s\n",newgame->window.name);
 	ft_readmap(newgame, argv[1]);
-	
-	// ft_isagoodmap();
-
 }
 
 void	ft_readmap(t_game *newgame, char *file)
@@ -70,9 +68,11 @@ void	ft_readmap(t_game *newgame, char *file)
 	close(fd);
 	newgame->map = ft_split(map, '\n');
 	newgame->b = (int)ft_strlen(newgame->map[0]);
-	newgame->h = 19;
-	ft_checkbs(map, 0, 0, 0);
+	newgame->h = ft_countrow(newgame->map);
+	newgame->collectible.nb = ft_checkbs(map, 0, 0, 0);
+	printf("\nh %d\n", newgame->collectible.nb);
 	ft_checkas(newgame);
+	// ft_rectanglecheck(newgame);
 	ft_anothebrickinthewall(newgame);
 	free(map);
 }

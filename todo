@@ -1,10 +1,32 @@
-remember to change printf with personal ft printf when school retart
-- check if the map is a rectangle
-- add to libft:
+r̶e̶m̶e̶m̶b̶e̶r̶ ̶t̶o̶ ̶c̶h̶a̶n̶g̶e̶ ̶p̶r̶i̶n̶t̶f̶ ̶w̶i̶t̶h̶ ̶p̶e̶r̶s̶o̶n̶a̶l̶ ̶f̶t̶ ̶p̶r̶i̶n̶t̶f̶ ̶w̶h̶e̶n̶ ̶s̶c̶h̶o̶o̶l̶ ̶r̶e̶t̶a̶r̶t̶
+-̶ ̶c̶h̶e̶c̶k̶ ̶i̶f̶ ̶t̶h̶e̶ ̶m̶a̶p̶ ̶i̶s̶ ̶a̶ ̶r̶e̶c̶t̶a̶n̶g̶l̶e̶ fix check rectangle
+̶- add to libft:
     + ft_free matrix or free argv or both
-    + ft_write string
-    + ft write matrix
-- implement all you need in game struct
-- make animation
-- find sprite
+ ̶ ̶ ̶ ̶+̶ ̶f̶t̶_̶w̶r̶i̶t̶e̶ ̶s̶t̶r̶i̶n̶g̶
+ ̶ ̶ ̶ ̶+̶ ̶f̶t̶ ̶w̶r̶i̶t̶e̶ ̶m̶a̶t̶r̶i̶x̶
+̶- implement all you need in game struct:
+    - setup animation done
+    - initialize game (setup minilibix window):
+        - open window done
+        - set esc button end esc with mouse clic done
+        - set flor wall player(fire?)  collectible door done enemy? 
+        - hook? maybe is not peter pan (key bind)
+- make animation done
+- find sprite done
 - to the infinite and beyond quote. Buzz
+
+	floor			"XPM/"		       "0"		statico
+	collectible		"XPM/coin1-2-3"	   "C"      animato-> update
+	wall 			"XPM/"		       "1"      statico
+	player			"XPM/player1-2-3"  "P"		animato-> update? doppia animazione una da fermo una movimento?
+	exit			"XPM/"		       "E"		animato-> solo quando ottengo tutti i collectible
+
+	// mlx_hook(newgame->window.reference,53,0,ft_close,0);
+
+- write ft find cord to put in the struct pos.x and pos.y of exit player and enemy?
+- implement input with switch oh position between player and '0'
+- decrement the collectible counter until the exit open
+- implement all keybind:
+    + w,a,s,d
+    +r-> restart
+    + esc done

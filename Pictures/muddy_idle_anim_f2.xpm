@@ -1,0 +1,27 @@
+/* XPM */
+static char *rcp09271409854457[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1 ",
+"  c #222222",
+". c #483B3A",
+"X c #5F2D56",
+"o c #775C55",
+"O c white",
+/* pixels */
+"OOOO        OOOO",
+"OOO Xooooooo OOO",
+"OOO Xo..ooo. OOO",
+"OOO Xo  ooo  OOO",
+"OOO Xo  ooo  OOO",
+"OOO Xo..ooo. OOO",
+"OOO .o o o o.OOO",
+"OOO  .   o . OOO",
+"OOO      .   OOO",
+"OOOO        OOOO",
+"OOOO        OOOO",
+"OOO          OOO",
+"OO .   .      OO",
+"O  . . o . .X  O",
+"O  XX..oooooo  O",
+"O              O"
+};

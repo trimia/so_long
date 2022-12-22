@@ -1,0 +1,13 @@
+/* XPM */
+static char *rcp09253025549412[] = {
+/* columns rows colors chars-per-pixel */
+"32 3 4 1 ",
+"  c #222222",
+". c #AA8D7A",
+"X c #D3BFA9",
+"o c white",
+/* pixels */
+"oooooooo                 ooooooo",
+"ooooo   ... ..... ... ...  ooooo",
+"ooo  ....XX XXXXX XXX X...   ooo"
+};
