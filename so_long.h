@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:31:13 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/22 19:34:01 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:34:58 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_element
 	int			framecount;
 	int			nb;
 	void		*reference;
-	t_vector	coor;
+	t_vector	pos;
 	t_image		currentimg;
 	t_image		img0;
 	t_image		img1;
@@ -101,13 +101,16 @@ typedef struct s_game
 	char		**map;
 	void		*mlx;
 	t_window	window;
+	t_window	win;
+	t_window	lose;
 	t_element	player;
 	t_element	collectible;
 	t_element	exit;
 	t_element	floor;
 	t_element	wall;
-	int		x;
-	int		y;
+	int			nbmoves;
+	char		*str;
+	int			status;
 	int		b;
 	int		h;
 }				t_game;
@@ -130,9 +133,10 @@ void	ft_checkas(t_game *newgame);
 void	ft_isagoodmap(char *map, t_game *newgame);
 void	ft_anothebrickinthewall(t_game *newgame);
 void	ft_rectanglecheck(t_game *newgame);
+void	ft_setupthings(t_game *newgame);
 void	ft_gameinitialize(t_game *newgame);
-void	ft_setupwindow(t_game *newgame);
-void	ft_render(t_game newgame);
+void	ft_setupwindow(t_game *newgame,t_window *windows);
+void	ft_render(t_game *newgame);
 void	ft_setupimage(t_game *newgame);
 int		ft_close();
 void	ft_drawmap(t_game *newgame, char type, int b, int h);
@@ -140,8 +144,22 @@ void	ft_assignimage(t_game *newgame, t_image *image, char *str);
 void	ft_updatecollectible(t_game *newgame, int *i, t_image *a);
 void	ft_updateplayer(t_game *newgame, int *i, t_image *a);
 void	ft_updateexit(t_game *newgame);
+void	ft_updatespikes(t_game *newgame, int *i, t_image *a);
 int		ft_update(t_game *newgame);
 int		ft_input(int key, t_game *newgame);
+void	ft_findpos(t_game *newgame, char type, t_element *element);
+void	ft_moveup(t_game *newgame);
+void	ft_moveleft(t_game *newgame);
+void	ft_movedown(t_game *newgame);
+void	ft_moveright(t_game *newgame);
+void	ft_youwin(t_game *newgame);
+void	ft_readwin(t_game *newgame, char *file);
+void	ft_drawtext(t_game *newgame);
+
+
+
+
+
 
 
 

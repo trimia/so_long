@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:58:13 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/22 19:29:45 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:43:44 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ void	ft_setupimage(t_game *newgame)
 	ft_assignimage(newgame, &newgame->player.img7, "xpmplayer/player07.xpm");
 	ft_assignimage(newgame, &newgame->player.img8, "xpmplayer/player08.xpm");
 	ft_assignimage(newgame, &newgame->wall.img0, "XPM/wall00.xpm");
-	ft_assignimage(newgame, &newgame->floor.img0, "XPM/floor.xpm");
 	ft_assignimage(newgame, &newgame->exit.img0, "XPM/doors_leaf_closed.xpm");
 	ft_assignimage(newgame, &newgame->exit.img1, "XPM/doors_leaf_open.xpm");
+	ft_assignimage(newgame, &newgame->floor.img0, "XPM/floor.xpm");
+	ft_assignimage(newgame, &newgame->floor.img1, "floor_spikes/floor_spikes_anim_f0.xpm");
+	ft_assignimage(newgame, &newgame->floor.img2, "floor_spikes/floor_spikes_anim_f1.xpm");
+	ft_assignimage(newgame, &newgame->floor.img3, "floor_spikes/floor_spikes_anim_f2.xpm");
+	ft_assignimage(newgame, &newgame->floor.img4, "floor_spikes/floor_spikes_anim_f3.xpm");
+	ft_assignimage(newgame,&newgame->lose.background,"XPM/gameover.xpm");
+	ft_assignimage(newgame, &newgame->win.background,"XPM/youwin.xpm");
 }

@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:28:04 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/22 19:55:36 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:37:03 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,21 @@ int ft_input(int key, t_game *newgame)
 	i = 0;
 	// mlx_hook(newgame->window.reference,53,0,ft_close,0);
 
-	if (key == 13)
-	{
-		printf("\npria %c\n",newgame->map[newgame->player.coor.y][newgame->player.coor.x]);
-		newgame->map[newgame->player.coor.y][newgame->player.coor.x] = '0'; 
-		newgame->map[newgame->player.coor.y + 1][newgame->player.coor.x] = 'P'; 
-		// newgame->map[newgame->player.coor.y + 1][newgame->player.coor.x + 1] = 'P';
-		printf("\npost %c\n",newgame->map[newgame->player.coor.y][newgame->player.coor.x]);
-		
-		printf("\nx %d\n",newgame->player.coor.x);
-		printf("\ny %d\n",newgame->player.coor.y);
-	}
-	if (key == 53)
+	if (key == 13 || key == 126) //up
+		ft_moveup(newgame);
+	else if (key == 0 || key == 123) //left
+		ft_moveleft(newgame);
+	else if (key == 1 || key == 125) //down
+		ft_movedown(newgame);	
+	else if (key == 2 || key == 124) //right
+		ft_moveright(newgame);
+	else if (key == 53)
 		ft_close();
+	else if (key == 15)
+	{
+		newgame->nbmoves = 0;
+		newgame->status = 0;
+		ft_readmap(newgame, newgame->str);
+	}
 	return (i); 
 }

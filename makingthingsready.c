@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:02:07 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/21 16:41:22 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:10:54 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,29 @@ void	ft_beforestart(int argc, char **argv, t_game *newgame)
 	newgame->window.name=ft_strdup(argv[1]);
 	printf("\nname %s\n",newgame->window.name);
 	ft_readmap(newgame, argv[1]);
+	newgame->str = ft_strdup(argv[1]);
+}
+
+void	ft_findpos(t_game *newgame, char type, t_element *element)
+{
+	int y;
+	int x;
+
+	y = -1;
+	x = -1;
+	while (++y < newgame->h)
+	{
+
+		x = -1;
+		while (++x < newgame->b)
+		{
+			if(newgame->map[y][x] == type)
+			{
+				element->pos.x = x;
+				element->pos.y = y;
+			}
+		}
+	}
 }
 
 void	ft_readmap(t_game *newgame, char *file)
@@ -69,6 +92,7 @@ void	ft_readmap(t_game *newgame, char *file)
 	newgame->map = ft_split(map, '\n');
 	newgame->b = (int)ft_strlen(newgame->map[0]);
 	newgame->h = ft_countrow(newgame->map);
+	ft_findpos(newgame, 'P', &newgame->player);
 	newgame->collectible.nb = ft_checkbs(map, 0, 0, 0);
 	printf("\nh %d\n", newgame->collectible.nb);
 	ft_checkas(newgame);

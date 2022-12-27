@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:17:33 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/21 19:53:58 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:41:33 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_checkas(t_game *newgame)
 		{
 			if (newgame->map[y][x] == '0' || newgame->map[y][x] == '1' ||
 					newgame->map[y][x] == 'C' || newgame->map[y][x] == 'E' ||
-					newgame->map[y][x] == 'P')
+					newgame->map[y][x] == 'P' || newgame->map[y][x] == 'S')
 				x++;
 			else
 			{
