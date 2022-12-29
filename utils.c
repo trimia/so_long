@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:17:03 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/23 19:40:41 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:32:49 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,25 @@ int	ft_countrow(char **matrix)
 	return (count);
 }
 
-int	ft_close()
+int	ft_close(void)
 {
 	exit(2);
 }
 
-void	ft_readwin(t_game *newgame, char *file)
+void	ft_killelement(t_game *newgame, int *i, t_element *a)
 {
-	int		fd;
-	char	*line;
-	char	*map;
+	a->currentimg.reference = a->img9.reference;
+	if (*i >= FRAMES && *i < FRAMES * 2)
+		a->currentimg.reference = a->img10.reference;
+	else if (*i >= FRAMES * 2 && *i < FRAMES * 3)
+		a->currentimg.reference = a->img11.reference;
+	else if (*i >= FRAMES * 3 && *i < FRAMES * 5)
+		a->currentimg.reference = newgame->floor.img4.reference;
+}
 
-	map = ft_calloc(1, 1);
-	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
-	{
-		map = ft_gnlstrjoin(map, line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	newgame->map = ft_split(map, '\n');
-	newgame->b = (int)ft_strlen(newgame->map[0]);
-	newgame->h = ft_countrow(newgame->map);
-	free(map);
-
+void	ft_writemovenb(t_game *newgame)
+{
+	ft_putstr_fd("moves nb ", 1);
+	ft_putnbr_fd(newgame->nbmoves, 1);
+	ft_putchar_fd('\n', 1);
 }

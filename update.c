@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:48:15 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/26 11:53:17 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:33:16 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,17 @@ void	ft_updatespikes(t_game *newgame, int *i, t_image *a)
 	if (*i >= FRAMES && *i < FRAMES * 20)
 	{
 		a->reference = newgame->floor.img2.reference;
-		newgame->floor.nb = 1;
+		newgame->floor.nb = 0;
 	}
 	else if (*i >= FRAMES * 20 && *i < FRAMES * 30)
+	{
+		newgame->floor.nb = 1;
 		a->reference = newgame->floor.img3.reference;
+	}
 	else if (*i >= FRAMES * 30 && *i < FRAMES * 50)
 	{
 		a->reference = newgame->floor.img4.reference;
 		*i = 0;
-		newgame->floor.nb = 0;
 	}
 	*i += 1;
 }
@@ -100,10 +102,11 @@ int	ft_update(t_game *newgame)
 		&newgame->collectible.currentimg);
 	ft_updateplayer(newgame, &(newgame->player.framecount),
 		&newgame->player.currentimg);
+	if (newgame->status == LOSE)
+		ft_killelement(newgame, &newgame->player.framecount, &newgame->player);
 	ft_updatespikes(newgame, &(newgame->floor.framecount),
 		&newgame->floor.currentimg);
 	ft_updateexit(newgame);
 	ft_render(newgame);
 	return (1);
 }
-

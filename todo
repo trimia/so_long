@@ -33,3 +33,39 @@ r̶e̶m̶e̶m̶b̶e̶r̶ ̶t̶o̶ ̶c̶h̶a̶n̶g̶e̶ ̶p̶r̶i̶n̶t̶f̶ ̶w�
 
 
 mlx_put_image_to_window(newgame->mlx,newgame->window.reference,newgame->win.background.reference,newgame->b/2,newgame->h/2);
+
+
+Ccantale dixit:
+- disegna solo il player e modifica solo pos.x e pos.y del player
+- finestra grande almeno come you win
+
+****************** set std size for little window ******************
+
+
+	mlx_put_image_to_window(newgame->mlx, newgame->window.reference,newgame->player.currentimg.reference, newgame->player.pos.x, newgame->player.pos.y);
+mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+		newgame->player.currentimg.reference,
+		newgame->player.pos.x, newgame->player.pos.y);
+
+
+void	ft_readwin(t_game *newgame, char *file)
+{
+	int		fd;
+	char	*line;
+	char	*map;
+
+	map = ft_calloc(1, 1);
+	fd = open(file, O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
+	{
+		map = ft_gnlstrjoin(map, line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	newgame->map = ft_split(map, '\n');
+	newgame->b = (int)ft_strlen(newgame->map[0]);
+	newgame->h = ft_countrow(newgame->map);
+	free(map);
+
+}

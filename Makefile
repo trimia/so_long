@@ -6,7 +6,7 @@
 #    By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 15:33:56 by mmariani          #+#    #+#              #
-#    Updated: 2022/12/23 20:47:08 by mmariani         ###   ########.fr        #
+#    Updated: 2022/12/29 18:46:52 by mmariani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 FLAGS = -g 
 # -Wall -Wextra -Werror
 LINKS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
-SRCS = solong.c makingthingsready.c map.c utils.c setup.c hook.c image.c render.c update.c input.c moves.c
+SRCS = solong.c makingthingsready.c map.c utils.c setup.c image.c render.c update.c input.c moves.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libft/libft.a
 

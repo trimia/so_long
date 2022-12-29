@@ -2,7 +2,7 @@
 static char *rcp13043906423621[] = {
 /* columns rows colors chars-per-pixel */
 "540 360 256 2 ",
-"   c #000000",
+"   c black",
 ".  c #0B0102",
 "X  c #010A01",
 "o  c #0A0902",
