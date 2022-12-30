@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   makingthingsready.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:02:07 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/29 18:43:25 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:56:27 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	ft_readmap(t_game *newgame, char *file)
 
 	map = ft_calloc(1, 1);
 	fd = open(file, O_RDONLY);
+	ft_checkfd(newgame, fd);
 	line = get_next_line(fd);
 	while (line)
 	{

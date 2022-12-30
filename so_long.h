@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:31:13 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/29 18:37:38 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:47:22 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_window
 	char		*name;
 	t_image		background;
 	t_vector	size;
+	t_vector	scale;
 }				t_window;
 
 /* The 4 values that define a color */
@@ -146,9 +147,11 @@ void	ft_moveright(t_game *newgame);
 void	ft_youwin(t_game *newgame);
 void	ft_readwin(t_game *newgame, char *file);
 void	ft_drawtext(t_game *newgame);
-void	ft_killelement(t_game *newgame, int *i, t_element *a);
+int		ft_killelement(t_game *newgame, int *i, t_element *a);
 void	ft_writemovenb(t_game *newgame);
 void	ft_setupplayerimg(t_game *newgame);
 void	ft_setupspikesimg(t_game *newgame);
+void	ft_checkfd(t_game *newgame, int fd);
+
 
 #endif

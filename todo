@@ -32,6 +32,15 @@ r̶e̶m̶e̶m̶b̶e̶r̶ ̶t̶o̶ ̶c̶h̶a̶n̶g̶e̶ ̶p̶r̶i̶n̶t̶f̶ ̶w�
     + esc done
 
 
+-delete leaks free the matrix
+-check map not valid if file doesn't exist' open file failure not a valid map
+-
+
+
+
+
+
+
 mlx_put_image_to_window(newgame->mlx,newgame->window.reference,newgame->win.background.reference,newgame->b/2,newgame->h/2);
 
 
@@ -68,4 +77,27 @@ void	ft_readwin(t_game *newgame, char *file)
 	newgame->h = ft_countrow(newgame->map);
 	free(map);
 
+}
+
+mlx_string_put(newgame->mlx, newgame->window.reference,
+		newgame->window.size.x -25, 25, -1, str);
+	free(str);
+
+
+	void	ft_drawmap(t_game *newgame, char type, int b, int h, t_vector *scale)
+{
+	mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+		newgame->floor.img0.reference, b * 32 + scale->x, h * 32 + scale->y);
+	if (type == '1')
+		mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+			newgame->wall.img0.reference, b * 32 + scale->x, h * 32 + scale->y);
+	else if (type == 'E')
+		mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+			newgame->exit.currentimg.reference, b * 32+ scale->x, h * 32 + scale->y);
+	else if (type == 'C')
+		mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+			newgame->collectible.currentimg.reference, b * 32+ scale->x, h * 32 + scale->y);
+	else if (type == 'S')
+		mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+			newgame->floor.currentimg.reference, b * 32+ scale->x, h * 32 + scale->y);
 }

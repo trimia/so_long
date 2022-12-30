@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setup.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:36:54 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/29 17:39:20 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:01:28 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,25 @@ void	ft_setupthings(t_game *newgame)
 	ft_findpos(newgame, 'E', &newgame->exit);
 	newgame->nbmoves = 0;
 	newgame->floor.nb = 0;
-	newgame->status = 0;
-	newgame->window.size.x = newgame->b * 32;
-	newgame->window.size.y = newgame->h * 32;
+	newgame->player.nb = 0;
+	newgame->status = GODOT;
+	newgame->window.scale.x = 0;
+	newgame->window.scale.y = 0;
+
+	if (newgame->b * 32 < 540 && newgame->h * 32 < 360)
+	{
+		newgame->window.size.x = 540;
+		newgame->window.size.y = 360;
+		newgame->window.scale.x = 250;
+		newgame->window.scale.y = 150;
+		// newgame->b = newgame->b + 250;
+		// newgame->h = newgame->h + 150;
+	}
+	else
+	{
+		newgame->window.size.x = newgame->b * 32;
+		newgame->window.size.y = newgame->h * 32;
+	}
 }
 
 void	ft_gameinitialize(t_game *newgame)

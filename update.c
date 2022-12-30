@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:48:15 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/29 17:33:16 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 17:49:59 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,13 @@ int	ft_update(t_game *newgame)
 	ft_updateplayer(newgame, &(newgame->player.framecount),
 		&newgame->player.currentimg);
 	if (newgame->status == LOSE)
-		ft_killelement(newgame, &newgame->player.framecount, &newgame->player);
+		newgame->player.nb = ft_killelement(newgame, &newgame->player.framecount, &newgame->player);
+	if (newgame->map[newgame->player.pos.y]
+		[newgame->player.pos.x] == 'E' && newgame->collectible.nb == 0)
+		newgame->status = WIN;
+	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x] == 'S'
+		&& newgame->floor.nb == 1)
+			newgame->status = LOSE;
 	ft_updatespikes(newgame, &(newgame->floor.framecount),
 		&newgame->floor.currentimg);
 	ft_updateexit(newgame);

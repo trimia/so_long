@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:52:30 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/29 18:31:14 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:03:30 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	ft_moveup(t_game *newgame)
 	if (newgame->map[newgame->player.pos.y - 1][newgame->player.pos.x] == 'C')
 		newgame->collectible.nb -= 1;
 	if (newgame->map[newgame->player.pos.y - 1][newgame->player.pos.x] == '1' ||
-		newgame->map[newgame->player.pos.y - 1][newgame->player.pos.x] == 'E')
+		(newgame->map[newgame->player.pos.y - 1][newgame->player.pos.x] == 'E' &&
+		newgame->collectible.nb != 0))
 		;
 	else
 	{
@@ -35,7 +36,8 @@ void	ft_moveleft(t_game *newgame)
 	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x - 1] == 'C')
 		newgame->collectible.nb -= 1;
 	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x - 1] == '1' ||
-		newgame->map[newgame->player.pos.y][newgame->player.pos.x - 1] == 'E')
+		(newgame->map[newgame->player.pos.y][newgame->player.pos.x - 1] == 'E' &&
+		newgame->collectible.nb != 0))
 		;
 	else
 	{
@@ -53,7 +55,8 @@ void	ft_movedown(t_game *newgame)
 	if (newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == 'C')
 		newgame->collectible.nb -= 1;
 	if (newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == '1' ||
-		newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == 'E')
+		(newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == 'E' &&
+		newgame->collectible.nb != 0))
 		;
 	else
 	{
@@ -71,7 +74,8 @@ void	ft_moveright(t_game *newgame)
 	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == 'C')
 		newgame->collectible.nb -= 1;
 	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == '1' ||
-		newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == 'E')
+		(newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == 'E' &&
+		newgame->collectible.nb != 0))
 		;
 	else
 	{

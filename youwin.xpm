@@ -254,7 +254,7 @@ static char *rcp10385997791207[] = {
 "HX c #FDFEF5",
 "JX c #FEF5FE",
 "KX c #F4FEFD",
-"LX c none",
+"LX c black",
 "PX c #F4F5FA",
 "IX c #EBE9E7",
 "UX c #DCD7DC",

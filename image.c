@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:58:13 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/29 18:45:44 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 17:44:51 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_assignimage(t_game *newgame, t_image *image, char *str)
 {
 	image->reference = mlx_xpm_file_to_image(newgame->mlx, str,
 			&image->size.x, &image->size.y);
+	// mlx_get_data_addr
 }
 
 void	ft_setupimage(t_game *newgame)
@@ -38,8 +39,8 @@ void	ft_setupimage(t_game *newgame)
 	ft_assignimage(newgame, &newgame->exit.img1, "XPM/doors_leaf_open.xpm");
 	ft_assignimage(newgame, &newgame->floor.img0, "XPM/floor.xpm");
 	ft_assignimage(newgame, &newgame->lose.background, "XPM/gameover.xpm");
-	ft_assignimage(newgame, &newgame->win.background, "youwin.xpm");
-	ft_assignimage(newgame, &newgame->lose.background, "gameover.xpm");
+	ft_assignimage(newgame, &newgame->win.background, "XPM/youwin.xpm");
+	ft_assignimage(newgame, &newgame->lose.background, "XPM/gameover.xpm");
 }
 
 void	ft_setupplayerimg(t_game *newgame)

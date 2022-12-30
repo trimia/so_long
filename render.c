@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:23:13 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/29 18:47:20 by mmariani         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:25:16 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_drawtext(t_game *newgame)
 
 	str = ft_itoa(newgame->nbmoves);
 	mlx_string_put(newgame->mlx, newgame->window.reference,
-		newgame->window.size.x -25, 25, -1, str);
+		newgame->window.size.x -100, 0, -1, str);
 	free(str);
 }
 
@@ -54,6 +54,12 @@ void	ft_render(t_game *newgame)
 
 	b = -1;
 	h = -1;
+	// if (newgame->status == WIN)
+	// {
+	// 	mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
+	// 		newgame->win.background.reference,
+	// 		(newgame->b / 2), (newgame->h / 2) * 16);
+	// }
 	while (++b < newgame->h)
 	{
 		h = -1;
@@ -70,8 +76,9 @@ void	ft_render(t_game *newgame)
 			newgame->win.background.reference,
 			(newgame->b / 2), (newgame->h / 2) * 16);
 	}
-	else if (newgame->status == LOSE && newgame->floor.nb == 0)
+	else if (newgame->status == LOSE && newgame->player.nb == 1)
 	{
+		// ft_killelement(newgame, &newgame->player.framecount, &newgame->player);
 		mlx_put_image_to_window(newgame->mlx, newgame->window.reference,
 			newgame->lose.background.reference,
 			(newgame->b / 2), (newgame->h / 2) * 16);
