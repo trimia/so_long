@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:02:07 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/30 19:56:27 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:16:30 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,14 @@ void	ft_readmap(t_game *newgame, char *file)
 	while (line)
 	{
 		map = ft_gnlstrjoin(map, line);
+		free(line);
 		line = get_next_line(fd);
 	}
 	close(fd);
 	newgame->map = ft_split(map, '\n');
 	newgame->b = (int)ft_strlen(newgame->map[0]);
 	newgame->h = ft_countrow(newgame->map);
+	ft_rectanglecheck(newgame);
 	ft_findpos(newgame, 'P', &newgame->player);
 	newgame->collectible.nb = ft_checkbs(map, 0, 0, 0);
 	ft_checkas(newgame);

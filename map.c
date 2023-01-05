@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:17:33 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/26 11:41:33 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/05 18:14:55 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,6 @@ void	ft_rectanglecheck(t_game *newgame)
 	while (++i != newgame->h)
 	{
 		if (!((int)ft_strlen(newgame->map[i]) == newgame->b))
-		{
-			ft_putstr_fd("Error\nnot a rectangle", 1);
-			exit(2);
-		}
-	}
-	i = -1;
-	while (++i != newgame->b)
-	{
-		if (!((int)ft_singlecountrow(newgame->map, i) == newgame->h))
 		{
 			ft_putstr_fd("Error\nnot a rectangle", 1);
 			exit(2);

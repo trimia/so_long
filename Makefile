@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+         #
+#    By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 15:33:56 by mmariani          #+#    #+#              #
-#    Updated: 2022/12/29 18:46:52 by mmariani         ###   ########.fr        #
+#    Updated: 2023/01/05 18:14:41 by mmariani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ all: $(NAME)
 $(LIBFT):
 	$(MAKE) -C ./libft
 
-$(NAME): $(LIBFT)
-	$(CC) $(FLAGS) $(LINKS) $(SRCS) $(LIBFT) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(FLAGS) $(LINKS) $(LIBFT) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
