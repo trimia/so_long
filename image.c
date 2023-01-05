@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:58:13 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/30 17:44:51 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:54:30 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_assignimage(t_game *newgame, t_image *image, char *str)
 {
 	image->reference = mlx_xpm_file_to_image(newgame->mlx, str,
 			&image->size.x, &image->size.y);
-	// mlx_get_data_addr
 }
 
 void	ft_setupimage(t_game *newgame)

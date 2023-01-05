@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:17:03 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/30 17:47:16 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/06 00:24:58 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_close(void)
 	exit(2);
 }
 
-int	ft_killelement(t_game *newgame, int *i, t_element *a)
+void	ft_killelement(t_game *newgame, int *i, t_element *a)
 {
 	a->currentimg.reference = a->img9.reference;
 	if (*i >= FRAMES && *i < FRAMES * 2)
@@ -45,8 +45,11 @@ int	ft_killelement(t_game *newgame, int *i, t_element *a)
 	else if (*i >= FRAMES * 2 && *i < FRAMES * 3)
 		a->currentimg.reference = a->img11.reference;
 	else if (*i >= FRAMES * 3 && *i < FRAMES * 5)
+	{
 		a->currentimg.reference = newgame->floor.img4.reference;
-	return (1);
+		newgame->player.nb++;
+	}
+	i += 1;
 }
 
 void	ft_writemovenb(t_game *newgame)

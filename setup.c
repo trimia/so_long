@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:36:54 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/30 20:01:28 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/06 00:23:34 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,14 @@ void	ft_setupthings(t_game *newgame)
 	newgame->status = GODOT;
 	newgame->window.scale.x = 0;
 	newgame->window.scale.y = 0;
-
-	if (newgame->b * 32 < 540 && newgame->h * 32 < 360)
-	{
+	newgame->window.size.x = newgame->b * 32;
+	newgame->window.size.y = newgame->h * 32;
+	if (newgame->b * 32 < 540)
 		newgame->window.size.x = 540;
+	if (newgame->h * 32 < 360)
 		newgame->window.size.y = 360;
-		newgame->window.scale.x = 250;
-		newgame->window.scale.y = 150;
-		// newgame->b = newgame->b + 250;
-		// newgame->h = newgame->h + 150;
-	}
-	else
-	{
-		newgame->window.size.x = newgame->b * 32;
-		newgame->window.size.y = newgame->h * 32;
-	}
+	newgame->window.scale.x = (newgame->window.size.x - newgame->b * 32) / 2;
+	newgame->window.scale.y = (newgame->window.size.y - newgame->h * 32) / 2;
 }
 
 void	ft_gameinitialize(t_game *newgame)
@@ -54,5 +47,3 @@ void	ft_gameinitialize(t_game *newgame)
 	mlx_loop_hook(newgame->mlx, ft_update, (void *)newgame);
 	mlx_hook(newgame->window.reference, 2, 0, ft_input, (void *)newgame);
 }
-
-void	ft_youwin(t_game *newgame);

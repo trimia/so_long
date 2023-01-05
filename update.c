@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:48:15 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/30 17:49:59 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/05 23:51:13 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	ft_update(t_game *newgame)
 	ft_updateplayer(newgame, &(newgame->player.framecount),
 		&newgame->player.currentimg);
 	if (newgame->status == LOSE)
-		newgame->player.nb = ft_killelement(newgame, &newgame->player.framecount, &newgame->player);
+		ft_killelement(newgame, &newgame->player.framecount, &newgame->player);
 	if (newgame->map[newgame->player.pos.y]
 		[newgame->player.pos.x] == 'E' && newgame->collectible.nb == 0)
 		newgame->status = WIN;

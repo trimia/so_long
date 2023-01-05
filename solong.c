@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solong.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:18:19 by matteomaria       #+#    #+#             */
-/*   Updated: 2022/12/29 17:30:20 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/06 00:24:14 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ int	main(int argc, char **argv)
 
 	ft_beforestart(argc, argv, &newgame);
 	ft_gameinitialize(&newgame);
-	// ft_printstrmatrix(newgame.map);
 	mlx_loop(newgame.mlx);
 }
