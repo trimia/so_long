@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:36:54 by mmariani          #+#    #+#             */
-/*   Updated: 2023/01/26 16:13:46 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:13:11 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,23 @@ int	ft_check_newline(char *line)
 	int	i;
 
 	i = 1;
-	if (line[0] == '\n')
+	if (line[0] == '\n' || line[0] == '\0')
 	{
-		ft_putstr_fd("Error\nwrong map",1);
+		ft_putstr_fd("Error\nwrong map", 1);
 		exit(2);
 	}
 	while (line[i])
 	{
 		if (line[i] == '\n' && line[i - 1] == '\n')
 		{
-			ft_putstr_fd("Error\nwrong map",1);
+			ft_putstr_fd("Error\nwrong map", 1);
 			exit(2);
 		}
 		i++;
 	}
 	if (line[i - 1] == '\n')
 	{
-		ft_putstr_fd("Error\nwrong map",1);
+		ft_putstr_fd("Error\nwrong map", 1);
 		exit(2);
 	}
 	return (1);

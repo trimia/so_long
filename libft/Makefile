@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+         #
+#    By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 13:12:30 by mmariani          #+#    #+#              #
-#    Updated: 2022/12/14 16:57:34 by mmariani         ###   ########.fr        #
+#    Updated: 2023/01/26 17:10:04 by mmariani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,9 @@ SRCS = ft_isalpha.c		\
 	   ft_putnbr_fd.c	\
 	   get_next_line.c	\
 	   get_next_line_utils.c \
-	   ft_printstrmatrix.c
+	   ft_printstrmatrix.c	\
+	   ft_freeintmatrix.c \
+	   ft_freestrmatrix.c
 
 OBJS = $(SRCS:.c=.o)
 

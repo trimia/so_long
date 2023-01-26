@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:28:04 by mmariani          #+#    #+#             */
-/*   Updated: 2023/01/06 00:06:50 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:08:12 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_input(int key, t_game *newgame)
 		ft_close();
 	else if (key == 15)
 	{
+		ft_freestrmatrix(newgame->map, ft_countrow(newgame->map));
 		mlx_clear_window(newgame->mlx, newgame->window.reference);
 		ft_setupthings(newgame);
 		ft_readmap(newgame, newgame->str);
@@ -35,7 +36,7 @@ int	ft_input(int key, t_game *newgame)
 
 void	ft_checkfd(t_game *newgame, int fd)
 {
-	if (fd < 0)
+	if (fd <= 0)
 	{
 		ft_putstr_fd("Error\nimpossible read map", 1);
 		exit(2);

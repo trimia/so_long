@@ -1,14 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   ft_freestrmatrix.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmariani <mmariani@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 19:08:17 by mmariani          #+#    #+#             */
-/*   Updated: 2022/12/20 14:54:46 by mmariani         ###   ########.fr       */
+/*   Created: 2023/01/26 16:43:11 by mmariani          #+#    #+#             */
+/*   Updated: 2023/01/26 17:20:25 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
+void	ft_freestrmatrix(char **matrix, int size)
+{
+	int	i;
+
+	i = -1;
+	while (++i < size + 1)
+		free(matrix[i]);
+	free(matrix);
+}
