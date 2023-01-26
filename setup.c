@@ -6,7 +6,7 @@
 /*   By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:36:54 by mmariani          #+#    #+#             */
-/*   Updated: 2023/01/06 00:23:34 by mmariani         ###   ########.fr       */
+/*   Updated: 2023/01/26 16:13:46 by mmariani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,31 @@ void	ft_gameinitialize(t_game *newgame)
 	ft_setupimage(newgame);
 	mlx_loop_hook(newgame->mlx, ft_update, (void *)newgame);
 	mlx_hook(newgame->window.reference, 2, 0, ft_input, (void *)newgame);
+}
+
+int	ft_check_newline(char *line)
+{
+	int	i;
+
+	i = 1;
+	if (line[0] == '\n')
+	{
+		ft_putstr_fd("Error\nwrong map",1);
+		exit(2);
+	}
+	while (line[i])
+	{
+		if (line[i] == '\n' && line[i - 1] == '\n')
+		{
+			ft_putstr_fd("Error\nwrong map",1);
+			exit(2);
+		}
+		i++;
+	}
+	if (line[i - 1] == '\n')
+	{
+		ft_putstr_fd("Error\nwrong map",1);
+		exit(2);
+	}
+	return (1);
 }
