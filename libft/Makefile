@@ -6,13 +6,15 @@
 #    By: mmariani <mmariani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 13:12:30 by mmariani          #+#    #+#              #
-#    Updated: 2023/01/26 17:10:04 by mmariani         ###   ########.fr        #
+#    Updated: 2023/01/29 19:14:03 by mmariani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SCRIPT_AUTHOR = trimia
 
 NAME = libft.a
+
+INC=libft.h
 
 SRCS = ft_isalpha.c		\
 	   ft_isdigit.c		\
@@ -54,8 +56,6 @@ SRCS = ft_isalpha.c		\
 	   ft_freeintmatrix.c \
 	   ft_freestrmatrix.c
 
-OBJS = $(SRCS:.c=.o)
-
 CC 		=	gcc
 
 CFLAGS 	=	-Wall -Werror -Wextra -c
@@ -70,31 +70,28 @@ BONUS =	ft_lstnew.c			\
 		ft_lstiter.c		\
 		ft_lstmap.c
 
-OBJS_BONUS = $(BONUS:.c=.o)
+OBJS_MAND = $(SRCS:.c=.o)
+OBJS_BNS = $(OBJS_MAND) $(BONUS:.c=.o)
 
+all:
+	@$(MAKE) OBJS="$(OBJS_MAND)" $(NAME) 
 
-all: $(NAME)
+bonus:
+	@$(MAKE) OBJS="$(OBJS_BNS)" $(NAME) 
 
-$(OBJS):
-	$(CC) $(CFLAGS) $(SRCS)
+%.o:	%.c
+	$(CC) $(CFLAGS) $< -o $@
 
-$(OBJS_BONUS):
-	$(CC) $(CFLAGS) $(BONUS)
-
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INC)
 	ar rcs libft.a $(OBJS)
 	# ranlib $(NAME)
 
 clean:
-	rm -rf $(OBJS) $(OBJS_BONUS)
+	rm -rf $(OBJS_MAND) $(OBJS_BNS)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re:		fclean all
-
-bonus: $(OBJS_BONUS)
-	ar rcs libft.a $(OBJS_BONUS)
-
 
 .PHONY: all fclean re clean bonus
